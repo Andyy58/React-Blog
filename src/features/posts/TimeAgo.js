@@ -14,4 +14,5 @@ const TimeAgo = ({ timestamp }) => {
     </span>
   );
 };
+
 export default TimeAgo;

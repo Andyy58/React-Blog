@@ -22,6 +22,10 @@ button,
 select {
   font: inherit;
   margin-bottom: 1em;
+  background-color: #585858;
+  color: whitesmoke;
+  border-radius: 10px;
+  outline: 0;
 }
 
 main {
@@ -41,7 +45,7 @@ article {
 }
 
 h1 {
-  font-family: 3.5rem;
+  font-size: 3.5rem;
 }
 
 p {
@@ -61,13 +65,9 @@ form {
 }
 
 .reactionButton {
-  margin: 0 1em 0 0;
+  margin: 0 0.25em 0 0;
   background: transparent;
   border: none;
   color: whitesmoke;
   font-size: 1rem;
-}
-
-:any-link {
-  color: whitesmoke;
 }
