@@ -102,6 +102,17 @@ form {
   flex-direction: column;
 }
 
+li a,
+li a:visited {
+  color: lightblue;
+  text-decoration: none;
+}
+
+li a:hover,
+li a:active {
+  color: lightgreen;
+}
+
 .deleteButton {
   background-color: rgba(226, 69, 69, 0.726);
 }

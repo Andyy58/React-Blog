@@ -1,5 +1,4 @@
-import { useDispatch } from "react-redux";
-import { reactionAdded } from "./postsSlice";
+import { useAddReactionMutation } from "./postsSlice";
 
 const reactionEmoji = {
   thumbsUp: "👍",
@@ -10,7 +9,7 @@ const reactionEmoji = {
 };
 
 const ReactionButtons = ({ post }) => {
-  const dispatch = useDispatch();
+  const [addReaction] = useAddReactionMutation();
 
   const ReactionButtons = Object.entries(reactionEmoji).map(([name, emoji]) => {
     return (
@@ -18,9 +17,13 @@ const ReactionButtons = ({ post }) => {
         key={name}
         type="button"
         className="reactionButton"
-        onClick={() =>
-          dispatch(reactionAdded({ postId: post.id, reaction: name }))
-        }
+        onClick={() => {
+          const newValue = post.reactions[name] + 1; // Add 1 to the counter of the added reaction
+          addReaction({
+            postId: post.id,
+            reactions: { ...post.reactions, [name]: newValue }, // [name] allows us to treat 'name' as a variable. We use the spread operator to update the value of the specified emoji here
+          });
+        }}
       >
         {emoji} {post.reactions[name]}
       </button>
